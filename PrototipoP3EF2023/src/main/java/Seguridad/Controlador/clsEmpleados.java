@@ -5,89 +5,180 @@
  */
 package Seguridad.Controlador;
 import java.util.List;
-import Seguridad.Modelo.daoAplicacion;
+import Seguridad.Modelo.daoEmpleados;
 /**
  *
  * @author visitante
  */
 
 public class clsEmpleados {
-    private int IdAplicacion;
-    private String NombreAplicacion;
-    private String EstatusAplicacion;
-    
+    private int idEmpleado;
+    private String NombreEmpleado;
+    private String ApellidoEmpleado;
+    private int TelefonoEmpleado;
+    private int DpiEmpleado;
+    private String DireccionEmpleado;
+    private String FechaNacEmpleado;
+    private int idUsuario;
 
-    public int getIdAplicacion() {
-        return IdAplicacion;
+    public int getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setIdAplicacion(int IdAplicacion) {
-        this.IdAplicacion = IdAplicacion;
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
-    public String getNombreAplicacion() {
-        return NombreAplicacion;
+    public String getNombreEmpleado() {
+        return NombreEmpleado;
     }
 
-    public void setNombreAplicacion(String NombreAplicacion) {
-        this.NombreAplicacion = NombreAplicacion;
+    public void setNombreEmpleado(String NombreEmpleado) {
+        this.NombreEmpleado = NombreEmpleado;
     }
 
-    public String getEstatusAplicacion() {
-        return EstatusAplicacion;
+    public String getApellidoEmpleado() {
+        return ApellidoEmpleado;
     }
 
-    public void setEstatusAplicacion(String EstatusAplicacion) {
-        this.EstatusAplicacion = EstatusAplicacion;
+    public void setApellidoEmpleado(String ApellidoEmpleado) {
+        this.ApellidoEmpleado = ApellidoEmpleado;
     }
 
-    public clsEmpleados(int IdAplicacion, String NombreAplicacion, String EstatusAplicacion) {
-        this.IdAplicacion = IdAplicacion;
-        this.NombreAplicacion = NombreAplicacion;
-        this.EstatusAplicacion = EstatusAplicacion;
+    public int getTelefonoEmpleado() {
+        return TelefonoEmpleado;
     }
 
-    public clsEmpleados(int IdAplicacion, String NombreAplicacion) {
-        this.IdAplicacion = IdAplicacion;
-        this.NombreAplicacion = NombreAplicacion;
+    public void setTelefonoEmpleado(int TelefonoEmpleado) {
+        this.TelefonoEmpleado = TelefonoEmpleado;
     }
 
-    public clsEmpleados(int IdAplicacion) {
-        this.IdAplicacion = IdAplicacion;
+    public int getDpiEmpleado() {
+        return DpiEmpleado;
+    }
+
+    public void setDpiEmpleado(int DpiEmpleado) {
+        this.DpiEmpleado = DpiEmpleado;
+    }
+
+    public String getDireccionEmpleado() {
+        return DireccionEmpleado;
+    }
+
+    public void setDireccionEmpleado(String DireccionEmpleado) {
+        this.DireccionEmpleado = DireccionEmpleado;
+    }
+
+    public String getFechaNacEmpleado() {
+        return FechaNacEmpleado;
+    }
+
+    public void setFechaNacEmpleado(String FechaNacEmpleado) {
+        this.FechaNacEmpleado = FechaNacEmpleado;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado, int TelefonoEmpleado, int DpiEmpleado, String DireccionEmpleado, String FechaNacEmpleado, int idUsuario) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+        this.TelefonoEmpleado = TelefonoEmpleado;
+        this.DpiEmpleado = DpiEmpleado;
+        this.DireccionEmpleado = DireccionEmpleado;
+        this.FechaNacEmpleado = FechaNacEmpleado;
+        this.idUsuario = idUsuario;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado, int TelefonoEmpleado, int DpiEmpleado, String DireccionEmpleado, String FechaNacEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+        this.TelefonoEmpleado = TelefonoEmpleado;
+        this.DpiEmpleado = DpiEmpleado;
+        this.DireccionEmpleado = DireccionEmpleado;
+        this.FechaNacEmpleado = FechaNacEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado, int TelefonoEmpleado, int DpiEmpleado, String DireccionEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+        this.TelefonoEmpleado = TelefonoEmpleado;
+        this.DpiEmpleado = DpiEmpleado;
+        this.DireccionEmpleado = DireccionEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado, int TelefonoEmpleado, int DpiEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+        this.TelefonoEmpleado = TelefonoEmpleado;
+        this.DpiEmpleado = DpiEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado, int TelefonoEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+        this.TelefonoEmpleado = TelefonoEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado, String ApellidoEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+        this.ApellidoEmpleado = ApellidoEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado, String NombreEmpleado) {
+        this.idEmpleado = idEmpleado;
+        this.NombreEmpleado = NombreEmpleado;
+    }
+
+    public clsEmpleados(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public clsEmpleados() {
     }
+    
+    
     //Metodos de acceso a la capa controlador
-    public clsEmpleados getBuscarInformacionAplicacionPorNombre(clsEmpleados aplicacion)
+    public clsEmpleados getBuscarInformacionAplicacionPorNombre(clsEmpleados empleado)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.consultaAplicacionPorNombre(aplicacion);
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        return daoEmpleados.consultaAplicacionPorNombre(empleado);
     }
-    public clsEmpleados getBuscarInformacionAplicacionPorId(clsEmpleados aplicacion)
+    public clsEmpleados getBuscarInformacionAplicacionPorId(clsEmpleados empleado)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.consultaAplicacionPorId(aplicacion);
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        return daoEmpleados.consultaAplicacionPorId(empleado);
     }    
     public List<clsEmpleados> getListadoAplicaciones()
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        List<clsEmpleados> listadoUsuarios = daoAplicacion.consultaAplicacion();
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        List<clsEmpleados> listadoUsuarios = daoEmpleados.consultaAplicacion();
         return listadoUsuarios;
     }
-    public int setBorrarAplicacion(clsEmpleados aplicacion)
+    public int setBorrarAplicacion(clsEmpleados empleado)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.borrarAplicacion(aplicacion);
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        return daoEmpleados.borrarAplicacion(empleado);
     }          
-    public int setIngresarAplicacion(clsEmpleados aplicacion)
+    public int setIngresarAplicacion(clsEmpleados empleado)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.ingresaAplicacion(aplicacion);
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        return daoEmpleados.ingresaAplicacion(empleado);
     }              
-    public int setModificarAplicacion(clsEmpleados aplicacion)
+    public int setModificarAplicacion(clsEmpleados empleado)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.actualizaAplicacion(aplicacion);
+        daoEmpleados daoEmpleados = new daoEmpleados();
+        return daoEmpleados.actualizaAplicacion(empleado);
     }              
 }

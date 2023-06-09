@@ -6,7 +6,7 @@
 package Seguridad.Vista;
 
 
-import Seguridad.Controlador.clsAplicacion;
+import Seguridad.Controlador.clsEmpleados;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
 import Seguridad.Modelo.Conexion;
@@ -30,7 +30,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author visitante
  */
 public class frmMantenimientoEmpleados extends javax.swing.JInternalFrame {
-int codigoAplicacion=120;
+int codigoAplicacion=1;
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
         List<Empleado> empleados = empleadoDAO.select();
@@ -44,16 +44,26 @@ int codigoAplicacion=120;
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("nombre");
-        modelo.addColumn("Estatus");
-        clsAplicacion aplicacion = new clsAplicacion();
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("DPI");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Fecha de Nacimiento");
+        modelo.addColumn("ID de Usuario");
+        clsEmpleados empleado = new clsEmpleados();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsAplicacion> listaAplicaciones = aplicacion.getListadoAplicaciones();
+        List<clsEmpleados> listaAplicaciones = empleado.getListadoAplicaciones();
         tablaUsuarios.setModel(modelo);
-        String[] dato = new String[3];
+        String[] dato = new String[8];
         for (int i = 0; i < listaAplicaciones.size(); i++) {
-            dato[0] = Integer.toString(listaAplicaciones.get(i).getIdAplicacion());
-            dato[1] = listaAplicaciones.get(i).getNombreAplicacion();
-            dato[2] = listaAplicaciones.get(i).getEstatusAplicacion();
+            dato[0] = Integer.toString(listaAplicaciones.get(i).getIdEmpleado());
+            dato[1] = listaAplicaciones.get(i).getNombreEmpleado();
+            dato[2] = listaAplicaciones.get(i).getApellidoEmpleado();
+            dato[3] = Integer.toString(listaAplicaciones.get(i).getTelefonoEmpleado());
+            dato[4] = Integer.toString(listaAplicaciones.get(i).getDpiEmpleado());
+            dato[5] = listaAplicaciones.get(i).getDireccionEmpleado();
+            dato[6] = listaAplicaciones.get(i).getFechaNacEmpleado();
+            dato[7] = Integer.toString(listaAplicaciones.get(i).getIdUsuario());
             modelo.addRow(dato);
         }       
     }
@@ -93,6 +103,16 @@ int codigoAplicacion=120;
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
         ReporteApl = new javax.swing.JButton();
+        txtTelefono = new javax.swing.JTextField();
+        label6 = new javax.swing.JLabel();
+        txtDPI = new javax.swing.JTextField();
+        label7 = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        label8 = new javax.swing.JLabel();
+        txtFechaNac = new javax.swing.JTextField();
+        label9 = new javax.swing.JLabel();
+        txtIdUsu = new javax.swing.JTextField();
+        label10 = new javax.swing.JLabel();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -101,7 +121,7 @@ int codigoAplicacion=120;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Aplicaciones");
+        setTitle("Mantenimiento Empleados");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -126,7 +146,7 @@ int codigoAplicacion=120;
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Aplicaciones");
+        label1.setText("Empleados");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +191,7 @@ int codigoAplicacion=120;
         txtContrasena.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
 
         label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label5.setText("Estatus");
+        label5.setText("Apellido");
 
         lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
@@ -200,28 +220,44 @@ int codigoAplicacion=120;
             }
         });
 
+        txtTelefono.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtTelefono.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label6.setText("Telefono");
+
+        txtDPI.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtDPI.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label7.setText("DPI");
+
+        txtDireccion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtDireccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label8.setText("Dirección");
+
+        txtFechaNac.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtFechaNac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label9.setText("Fecha de Nacimiento");
+
+        txtIdUsu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtIdUsu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label10.setText("Id de Usuario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label3)
-                    .addComponent(label5))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(txtNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(label4)
@@ -236,18 +272,58 @@ int codigoAplicacion=120;
                                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(ReporteApl, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ayudaApl, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label6)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtTelefono))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label7)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtDPI))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label8)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtDireccion))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label10)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtIdUsu)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label3)
+                            .addComponent(label5))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(txtNombre))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(ReporteApl, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ayudaApl, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +335,9 @@ int codigoAplicacion=120;
                             .addComponent(lb)
                             .addComponent(label1))
                         .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnActualizar)
+                        .addGap(0, 155, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,6 +347,26 @@ int codigoAplicacion=120;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label8))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label9))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -281,16 +379,11 @@ int codigoAplicacion=120;
                             .addComponent(btnBuscar)
                             .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label4))
-                        .addGap(51, 51, 51)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ReporteApl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ayudaApl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(147, 147, 147))))
+                        .addGap(78, 78, 78))))
         );
 
         pack();
@@ -299,20 +392,36 @@ int codigoAplicacion=120;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=aplicacion.setBorrarAplicacion(aplicacion);
+        clsEmpleados empleado = new clsEmpleados();
+        empleado.setIdEmpleado(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=empleado.setBorrarAplicacion(empleado);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
+        
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setNombreAplicacion(txtNombre.getText());
-        aplicacion.setEstatusAplicacion(txtContrasena.getText());
-        aplicacion.setIngresarAplicacion(aplicacion);
+        clsEmpleados empleado = new clsEmpleados();
+        empleado.setNombreEmpleado(txtNombre.getText());
+        empleado.setApellidoEmpleado(txtContrasena.getText());
+        empleado.setTelefonoEmpleado(Integer.parseInt(txtTelefono.getText()));
+        empleado.setDpiEmpleado(Integer.parseInt(txtDPI.getText()));
+        empleado.setDireccionEmpleado(txtDireccion.getText());
+        empleado.setFechaNacEmpleado(txtFechaNac.getText());
+        empleado.setIdUsuario(Integer.parseInt(txtIdUsu.getText()));
+        
+        empleado.setIngresarAplicacion(empleado);
+        
+        int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+        
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -321,25 +430,42 @@ int codigoAplicacion=120;
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        clsAplicacion aplicacion = new clsAplicacion();
+        clsEmpleados empleado = new clsEmpleados();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));        
-        aplicacion = aplicacion.getBuscarInformacionAplicacionPorId(aplicacion);
-        System.out.println("Usuario retornado:" + aplicacion);        
-        txtNombre.setText(aplicacion.getNombreAplicacion());
-        txtContrasena.setText(aplicacion.getEstatusAplicacion());
+        empleado.setIdEmpleado(Integer.parseInt(txtbuscado.getText()));        
+        empleado = empleado.getBuscarInformacionAplicacionPorId(empleado);
+        System.out.println("Usuario retornado:" + empleado);        
+        txtNombre.setText(empleado.getNombreEmpleado());
+        txtContrasena.setText(empleado.getApellidoEmpleado());
+        txtTelefono.setText(Integer.toString(empleado.getTelefonoEmpleado()));
+        txtDPI.setText(Integer.toString(empleado.getDpiEmpleado()));
+        txtDireccion.setText(empleado.getDireccionEmpleado());
+        txtFechaNac.setText(empleado.getFechaNacEmpleado());
+        txtIdUsu.setText(Integer.toString(empleado.getIdUsuario()));
+        
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));
-        aplicacion.setNombreAplicacion(txtNombre.getText());
-        aplicacion.setEstatusAplicacion(txtContrasena.getText());
-        aplicacion.setModificarAplicacion(aplicacion);
+        clsEmpleados empleado = new clsEmpleados();
+        empleado.setIdEmpleado(Integer.parseInt(txtbuscado.getText()));
+        empleado.setNombreEmpleado(txtNombre.getText());
+        empleado.setApellidoEmpleado(txtContrasena.getText());
+        empleado.setTelefonoEmpleado(Integer.parseInt(txtTelefono.getText()));
+        empleado.setDpiEmpleado(Integer.parseInt(txtDPI.getText()));
+        empleado.setDireccionEmpleado(txtDireccion.getText());
+        empleado.setFechaNacEmpleado(txtFechaNac.getText());
+        empleado.setIdUsuario(Integer.parseInt(txtIdUsu.getText()));
+        empleado.setModificarAplicacion(empleado);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+        
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -353,6 +479,11 @@ int codigoAplicacion=120;
         txtNombre.setText("");
         txtContrasena.setText("");
         txtbuscado.setText("");
+        txtTelefono.setText("");
+        txtDPI.setText("");
+        txtDireccion.setText("");
+        txtFechaNac.setText("");
+        txtIdUsu.setText("");
     }
     public void habilitarBotones()
     {
@@ -373,7 +504,7 @@ int codigoAplicacion=120;
             if ((new File("src\\main\\java\\seguridad\\ayuda\\aplicacionAyuda.chm")).exists()) {
                 Process p = Runtime
                 .getRuntime()
-                .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\seguridad\\ayuda\\aplicacionAyuda.chm");
+                .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\seguridad\\ayuda\\AyudaPEmpleados.chm");
                 p.waitFor();
             } else {
                 System.out.println("La ayuda no fue encontrada");
@@ -399,10 +530,10 @@ int codigoAplicacion=120;
         try {
             conn = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                    + "/src/main/java/seguridad/reportes/ReportAplicacion.jrxml");
+                    + "/src/main/java/seguridad/reportes/rptEmpleados.jrxml");
 	    print = JasperFillManager.fillReport(report, p, conn);
             JasperViewer view = new JasperViewer(print, false);
-	    view.setTitle("Reporte Aplicación");
+	    view.setTitle("Reporte Empleados");
             view.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
@@ -421,15 +552,25 @@ int codigoAplicacion=120;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
+    private javax.swing.JLabel label10;
     private javax.swing.JLabel label3;
     private javax.swing.JLabel label4;
     private javax.swing.JLabel label5;
+    private javax.swing.JLabel label6;
+    private javax.swing.JLabel label7;
+    private javax.swing.JLabel label8;
+    private javax.swing.JLabel label9;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaUsuarios;
     private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtDPI;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtFechaNac;
+    private javax.swing.JTextField txtIdUsu;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
 }

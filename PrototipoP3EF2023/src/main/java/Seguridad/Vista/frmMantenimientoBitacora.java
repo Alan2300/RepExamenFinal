@@ -13,7 +13,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import Seguridad.Controlador.clsBitacora;
-import Seguridad.Controlador.clsPerfil;
 import Seguridad.Modelo.Conexion;
 import java.sql.Connection;
 import java.text.ParseException;
