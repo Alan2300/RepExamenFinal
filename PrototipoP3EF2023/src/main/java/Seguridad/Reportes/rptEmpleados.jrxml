@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="43276343-e6c0-4af8-8b6a-b4910908fd27">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT * FROM proyectop312023.tbl_empleados]]>
 	</queryString>
@@ -34,10 +37,68 @@
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="20" uuid="a6d86ff2-25f8-4737-86c9-b80575436f46"/>
+				<text><![CDATA[empid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="79" height="20" uuid="2f17d3b7-9650-45c7-b2b4-c7af3767b0ae"/>
+				<text><![CDATA[empnombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="79" height="20" uuid="f9216ab4-f6c2-48ed-9f00-249855b70e7a"/>
+				<text><![CDATA[empapellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="79" height="20" uuid="1532bf65-0b73-4bf6-a427-507b95174614"/>
+				<text><![CDATA[emptelefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="79" height="20" uuid="aed14863-4d02-4051-bd19-d1388c7bfab8"/>
+				<text><![CDATA[empdpi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="79" height="20" uuid="0d40feab-be8d-44c2-ae55-2695e4f1dc9f"/>
+				<text><![CDATA[empdireccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="0" width="79" height="20" uuid="024f3220-6346-4cac-ab42-833d65dbbfef"/>
+				<text><![CDATA[usuid]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="edbd6802-fa76-4c54-8f18-b91350e9380e"/>
+				<textFieldExpression><![CDATA[$F{empid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="79" height="20" uuid="bd7715a7-d434-425d-9d40-44551e01793f"/>
+				<textFieldExpression><![CDATA[$F{empnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="20" uuid="78d0b614-44c3-406d-b5ea-b6b0b4d6885b"/>
+				<textFieldExpression><![CDATA[$F{empapellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="20" uuid="7067edc1-d02c-4fc8-8419-6a1953978bb2"/>
+				<textFieldExpression><![CDATA[$F{emptelefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="79" height="20" uuid="9fdbf586-031d-467b-9964-8af5f763e643"/>
+				<textFieldExpression><![CDATA[$F{empdpi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="79" height="20" uuid="15232ece-304d-4155-ab4f-69e84db4c5da"/>
+				<textFieldExpression><![CDATA[$F{empdireccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="79" height="20" uuid="15d5dbe7-3d94-4c3c-8717-bb6fd6694aa4"/>
+				<textFieldExpression><![CDATA[$F{usuid}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
