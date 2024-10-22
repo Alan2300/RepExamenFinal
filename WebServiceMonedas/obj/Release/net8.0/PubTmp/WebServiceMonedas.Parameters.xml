@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WebServiceMonedas20241021192606" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\abima\\OneDrive\ -\ Universidad\ Mariano\ Gálvez\\Escritorio\\Universidad\\Octavo\ Semestre\\Análisis\ Sistemas\ II\\Módulo\ III\ An\ III\\WebServiceMonedas\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
